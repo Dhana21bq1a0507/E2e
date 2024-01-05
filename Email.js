@@ -18,7 +18,7 @@ app.post('/reject', (req, res) => {
   res.send('Action handled successfully');
 });
 
-const PORT = process.env.PORT || 3300;
+const PORT = process.env.PORT || 3301;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
