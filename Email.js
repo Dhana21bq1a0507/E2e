@@ -1,18 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 
-app.post('/email', (req, res) => {
-  const { buttonClicked } = req.body;
-  // Process the buttonClicked value as needed
-  console.log(`Button clicked: ${buttonClicked}`);
-  res.json({ message: 'Button click processed successfully' });
-  res.sendStatus(200);
+// Handle accept action
+app.post('/accept', (req, res) => {
+  console.log('Accept button clicked');
+  // Perform necessary actions on the server
+  res.send('Action handled successfully');
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+// Handle reject action
+app.post('/reject', (req, res) => {
+  console.log('Reject button clicked');
+  // Perform necessary actions on the server
+  res.send('Action handled successfully');
+});
+
+const PORT = process.env.PORT || 3300;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
