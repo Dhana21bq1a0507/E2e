@@ -1,12 +1,13 @@
-const express=require("express")
-const cors=require("cors");
-const app=express();
-app.use(cors());
-app.use(express.json());
-app.get("/message",(req,res)=>{
-    res.json([{
-        "name":"bill",
-        "age":66
-    }])
-})
-app.listen(3300,()=>console.log("server is up"))
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/Student";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("Student");
+  var myobj = { name: "Company Inc", address: "Highway 37" };
+  dbo.collection("customers").insertOne(myobj, function(err, res) {
+    if (err) throw err;
+    console.log("1 document inserted");
+    db.close();
+  });
+});

@@ -19,12 +19,12 @@ app.post('/message',(req,res)=>{
         password:String
     
     })
-    {/*const studetails=mongoose.model("studetails",UserSchema)
+    const studetails=mongoose.model("studetails",UserSchema)
 const stud=new studetails(receivedData);
 stud.save().then(
     ()=>console.log("one entry added"),
     (err)=>console.log(err),
-);*/}//this for insert data into database
+);//this for insert data into database
 
 
 const UserModel=mongoose.model("studentdetails",UserSchema)
